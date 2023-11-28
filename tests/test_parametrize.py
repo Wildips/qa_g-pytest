@@ -25,9 +25,6 @@ def browser_size(request):
 @pytest.mark.parametrize("browser_size", ["desktop"], indirect=True)
 def test_github_desktop_params(browser_size):
     # ARRANGE (GIVEN)
-    # browser_size.open("https://github.com").wait_until(
-    #     have.title("GitHub: Let's build from here - GitHub")
-    # )
 
     # ACTIONS (WHEN)
     browser_size.element(".HeaderMenu-link--sign-in").should(be.clickable).click()
@@ -39,9 +36,6 @@ def test_github_desktop_params(browser_size):
 @pytest.mark.parametrize("browser_size", ["mobile"], indirect=True)
 def test_github_mobile_params(browser_size):
     # ARRANGE (GIVEN)
-    # browser.open("https://github.com").wait_until(
-    #     have.title("GitHub: Let's build from here - GitHub")
-    # )
 
     # ACTIONS (WHEN)
     browser_size.element(".Button-label").should(be.clickable).click()

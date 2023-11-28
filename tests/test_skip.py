@@ -19,9 +19,6 @@ def browser_config(request):
     browser.config.timeout = 2.0
     browser.config.window_width = request.param[0]
     browser.config.window_height = request.param[1]
-    # browser.open("https://github.com").wait_until(
-    #     have.title("GitHub: Let's build from here - GitHub")
-    # )
     yield browser, [
         key
         for key, value in DEVICES_DICT.items()
@@ -30,7 +27,7 @@ def browser_config(request):
     browser.quit()
 
 
-def test_github_desktop_skip(browser_config):
+def test_github_mobile_skip(browser_config):
     # ARRANGE (GIVEN)
     test_browser, browser_type = browser_config
     if browser_type == "mobile":
@@ -47,7 +44,7 @@ def test_github_desktop_skip(browser_config):
     test_browser.element(".auth-form-header").should(have.text("Sign in to GitHub"))
 
 
-def test_github_mobile_skip(browser_config):
+def test_github_desktop_skip(browser_config):
     # ARRANGE (GIVEN)
     test_browser, browser_type = browser_config
     if browser_type == "desktop":

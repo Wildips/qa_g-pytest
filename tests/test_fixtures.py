@@ -31,7 +31,6 @@ def mobile_browser():
 
 def test_github_desktop(desktop_browser):
     # ARRANGE (GIVEN)
-    # desktop_browser.open("https://github.com")
 
     # ACTIONS (WHEN)
     desktop_browser.element(".HeaderMenu-link--sign-in").should(be.clickable).click()
@@ -42,7 +41,6 @@ def test_github_desktop(desktop_browser):
 
 def test_github_mobile(mobile_browser):
     # ARRANGE (GIVEN)
-    # mobile_browser.open("https://github.com")
 
     # ACTIONS (WHEN)
     mobile_browser.element(".Button-label").should(be.clickable).click()
